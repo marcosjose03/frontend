@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Mis Hábitos</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Mis Hábitos</h1>
+
+    <!-- Filtro de módulos -->
+    <div class="filter-container">
+      <label for="filtro-modulo">Filtrar por módulo:</label>
+      <select id="filtro-modulo" onchange="cargarHabitos()">
+        <option value="">Todos</option>
+        <option value="DEPORTE">Deporte</option>
+        <option value="SALUD">Salud</option>
+        <option value="APRENDIZAJE">Aprendizaje</option>
+      </select>
+    </div>
+
+    <!-- Lista de hábitos -->
+    <ul id="habitos-list"></ul>
+
+    <!-- Formulario para agregar hábitos -->
+    <h2>Agregar Hábito</h2>
+    <form id="habito-form">
+      <input type="text" id="habito-nombre" placeholder="Nombre del hábito" required>
+      <select id="habito-modulo">
+        <option value="DEPORTE">Deporte</option>
+        <option value="SALUD">Salud</option>
+        <option value="APRENDIZAJE">Aprendizaje</option>
+      </select>
+      <button type="submit" class="btn agregar">Agregar</button>
+    </form>
+
+    <h2>Estadísticas de Hábitos</h2>
+    <!-- Canvas para el gráfico -->
+    <canvas id="graficoHabitos" width="400" height="200"></canvas>
+    <div id="progreso-container">
+      <label><strong>Progreso total:</strong></label>
+      <div class="barra-externa">
+        <div class="barra-interna" id="barra-progreso"></div>
+      </div>
+      <p id="porcentaje-progreso"></p>
+    </div>
+
+    <button onclick="cerrarSesion()" class="btn cerrar-sesion">Cerrar Sesión</button>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
